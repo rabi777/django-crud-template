@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome my first django project</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'crud/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'crud/css/bootstrap.css' %}">
+</head>
+<body>
+<div class="form-header">
+	<div class="container">
+		<div class="row">
+			<h2>CRUD</h2>
+			<nav class="navbar navbar-nav">
+				<ul class="nav nav-pills">
+					<li><a href="{% url 'crud:create_post' %}">Create Post</a></li>
+				</ul>
+				<ul class="nav nav-pills">
+					<li><a href="{% url 'crud:index' %}">Home</a></li>
+				</ul>
+			</nav>
+			<div class="col-md-offset-3 col-md-6 text-center ">
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.post }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'crud/js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'crud/js/bootstrap.js' %}"></script>
+</body>
+</html>

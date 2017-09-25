@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome my first laravel project</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'crud/css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'crud/css/bootstrap.css' %}">
+</head>
+<body>
+<div class="form-header">
+	<div class="container">
+		<div class="row">
+			<h2>CRUD</h2>
+			<nav class="navbar navbar-nav">
+				<ul class="nav nav-pills">
+					<li><a href="{% url 'crud:index' %}">Home</a></li>
+				</ul>
+			</nav>
+			<div class="col-md-offset-3 col-md-6 text-center ">
+				<form class="form-horizontal" action="{% url 'crud:update' item.id %}" method="post">
+					{% csrf_token %}
+				  <fieldset>
+				    <legend>Create post</legend>
+				    <div class="form-group">
+				      <label for="title" class="col-lg-2 control-label">Title</label>
+				      <div class="col-lg-10">
+				        <input type="text" class="form-control" name="title" value="{{item.title}}" id="title" placeholder="Title">
+				      </div>
+				    </div>
+				    <div class="form-group">
+				      <label for="textArea" class="col-lg-2 control-label">post body</label>
+				      <div class="col-lg-10">
+				        <textarea class="form-control" name="post" rows="3" id="textArea">{{item.post}}</textarea>
+				      </div>
+				    </div>
+				    <div class="form-group">
+				    	<button type="submit" class="btn btn-success pull-right">Update</button>
+				    </div>
+				  </fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="{% static 'crud/js/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'crud/js/bootstrap.js' %}"></script>
+</body>
+</html>
